@@ -1251,6 +1251,22 @@ class NamecoinRegtest(NamecoinTestnet):
     TX_COUNT_HEIGHT = 1
     NAME_EXPIRATION = 30
 
+class Danecoin(BitcoinMixin, Coin):
+    NAME = "Danecoin"
+    SHORTNAME = "DANE"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("0488b21e")
+    XPRV_VERBYTES = bytes.fromhex("0488ade4")
+    P2PKH_VERBYTE = bytes.fromhex("1e")
+    P2SH_VERBYTES = (bytes.fromhex("5a"),)
+    WIF_BYTE = bytes.fromhex("9e")
+    GENESIS_HASH = ('0000097f0b356e068460e6cf90687349'
+                    '1a7a223f36ea0a5b8fc10f750b8dde7d')
+    TX_COUNT = 371572
+    TX_COUNT_HEIGHT = 325000
+    TX_PER_BLOCK = 2
+    REORG_LIMIT = 2000
+    DESERIALIZER = lib_tx.DeserializerSegWit
 
 class Dogecoin(AuxPowMixin, Coin):
     NAME = "Dogecoin"
